@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Book</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="form-container">
+
+    <div class="form-box">
+
+        <h1> Edit Book</h1>
+
+        <p class="subtitle">
+            Update book information in the library catalog
+        </p>
+
+        <form
+            action="/books/edit/<%= book.id %>"
+            method="POST"
+        >
+
+            <div class="input-group">
+
+                <label>Book ID</label>
+
+                <input
+                    type="text"
+                    value="<%= book.id %>"
+                    disabled
+                >
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Book Title</label>
+
+                <input
+                    type="text"
+                    name="title"
+                    value="<%= book.title %>"
+                    placeholder="Enter Book Title"
+                    required
+                >
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Author Name</label>
+
+                <input
+                    type="text"
+                    name="author"
+                    value="<%= book.author %>"
+                    placeholder="Enter Author Name"
+                    required
+                >
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Available Quantity</label>
+
+                <input
+                    type="number"
+                    name="quantity"
+                    value="<%= book.quantity %>"
+                    min="0"
+                    required
+                >
+
+            </div>
+
+            <button
+                type="submit"
+                class="primary-btn"
+            >
+                Update Book
+            </button>
+
+        </form>
+
+        <a
+            href="/books"
+            class="back-link"
+        >
+            ← Back to Books
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

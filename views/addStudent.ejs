@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+    <div class="form-container">
+
+        <div class="form-box">
+
+            <h1> Add New Student</h1>
+            <p class="subtitle">
+                Register a new student in the library system
+            </p>
+
+            <form action="/students/add" method="POST">
+
+                <div class="input-group">
+                    <label>USN</label>
+                    <input
+                        type="text"
+                        name="usn"
+                        placeholder="Enter Student USN"
+                        required
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label>Student Name</label>
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Enter Student Name"
+                        required
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label>Branch</label>
+
+                    <select name="branch" required>
+
+                        <option value="">
+                            Select Branch
+                        </option>
+
+                        <option value="CSE">
+                            Computer Science
+                        </option>
+
+                        <option value="ISE">
+                            Information Science
+                        </option>
+
+                        <option value="ECE">
+                            Electronics & Communication
+                        </option>
+
+                        <option value="EEE">
+                            Electrical & Electronics
+                        </option>
+
+                        <option value="ME">
+                            Mechanical
+                        </option>
+
+                        <option value="CV">
+                            Civil
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <button class="primary-btn">
+                    Add Student
+                </button>
+
+            </form>
+
+            <a href="/students" class="back-link">
+                ← Back to Students
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

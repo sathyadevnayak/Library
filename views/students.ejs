@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Students</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>library</h2>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/books">books</a>
+        <a href="/borrowed">Borrowed Books</a>
+        <a href="/visits">Library Visits</a>
+        <a href="/students">Students</a>
+        <a href="/logout">logout</a>
+    </div>
+
+<div class="main">
+
+    <div class="page-header">
+
+        <h1>Student Management</h1>
+
+        <a
+            href="/students/add"
+            class="primary-btn"
+        >
+            + Add Student
+        </a>
+
+    </div>
+
+    <table>
+
+        <tr>
+            <th>USN</th>
+            <th>Name</th>
+            <th>Branch</th>
+            <th>Actions</th>
+        </tr>
+
+        <% students.forEach(student => { %>
+
+        <tr>
+
+            <td><%= student.usn %></td>
+            <td><%= student.name %></td>
+            <td><%= student.branch %></td>
+            <td>
+                <a href="/students/edit/<%= student.usn %>" class="edit-btn">Edit</a>
+                <a href="/students/delete/<%= student.usn %>" class="delete-btn" onclick="return confirm('Delete this student?')">Delete</a>
+            </td>
+
+        </tr>
+
+        <% }) %>
+
+    </table>
+
+</div>
+
+</body>
+</html>

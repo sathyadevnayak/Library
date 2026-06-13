@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Book</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    
+
+<div class="form-container">
+
+    <div class="form-box">
+
+        <h1> Add New Book</h1>
+
+        <p class="subtitle">
+            Add a new book to the library catalog
+        </p>
+
+        <form action="/addbooks" method="POST">
+
+            <div class="input-group">
+                <label>Book Title</label>
+
+                <input
+                    type="text"
+                    name="title"
+                    placeholder="Enter book title"
+                    required
+                >
+            </div>
+
+            <div class="input-group">
+                <label>Author Name</label>
+
+                <input
+                    type="text"
+                    name="author"
+                    placeholder="Enter author name"
+                    required
+                >
+            </div>
+
+            <div class="input-group">
+                <label>Quantity Available</label>
+
+                <input
+                    type="number"
+                    name="quantity"
+                    placeholder="Enter quantity"
+                    min="1"
+                    required
+                >
+            </div>
+
+            <button type="submit" class="primary-btn">
+                Add Book
+            </button>
+
+        </form>
+
+        <a href="/books" class="back-link">
+            ← Back to Books
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

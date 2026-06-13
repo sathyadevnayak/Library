@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Borrow Record</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="form-container">
+
+    <div class="form-box">
+
+        <h1> Edit Borrow Record</h1>
+
+        <p class="subtitle">
+            Update borrowing details
+        </p>
+
+        <form
+            action="/borrowed/edit/<%= borrowed.id %>"
+            method="POST"
+        >
+
+            <div class="input-group">
+
+                <label>Student</label>
+
+                <select name="usn" required>
+
+                    <% students.forEach(student => { %>
+
+                    <option
+                        value="<%= student.usn %>"
+                        <%= borrowed.usn === student.usn ? 'selected' : '' %>
+                    >
+                        <%= student.usn %> - <%= student.name %>
+                    </option>
+
+                    <% }) %>
+
+                </select>
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Book</label>
+
+                <select name="book_id" required>
+
+                    <% books.forEach(book => { %>
+
+                    <option
+                        value="<%= book.id %>"
+                        <%= borrowed.book_id === book.id ? 'selected' : '' %>
+                    >
+                        <%= book.title %>
+                    </option>
+
+                    <% }) %>
+
+                </select>
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Borrow Date</label>
+
+                <input
+                    type="date"
+                    name="borrowed_date"
+                    value="<%= borrowed.borrowed_date %>"
+                    required
+                >
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Expected Return Date</label>
+
+                <input
+                    type="date"
+                    name="return_date"
+                    value="<%= borrowed.return_date %>"
+                    required
+                >
+
+            </div>
+
+            <div class="input-group">
+
+            </div>
+
+            <button class="primary-btn">
+                Update Record
+            </button>
+
+        </form>
+
+        <a href="/borrowed" class="back-link">
+            ← Back to Borrowed Books
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

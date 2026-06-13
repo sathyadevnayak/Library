@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Entry</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="form-container">
+
+    <div class="form-box">
+
+        <h1> Library Entry</h1>
+
+        <form action="/visits/add" method="POST">
+
+            <div class="input-group">
+
+                <label>Student</label>
+
+                <select name="usn" required>
+
+                    <% students.forEach(student=>{ %>
+
+                    <option value="<%= student.usn %>">
+                        <%= student.usn %> -
+                        <%= student.name %>
+                    </option>
+
+                    <% }) %>
+
+                </select>
+
+            </div>
+
+            <button class="primary-btn">
+                Mark Entry
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

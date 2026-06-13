@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Visits</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>library</h2>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/books">books</a>
+        <a href="/borrowed">Borrowed Books</a>
+        <a href="/visits">Library Visits</a>
+        <a href="/students">Students</a>
+        <a href="/logout">logout</a>
+    </div>
+
+<div class="main">
+
+    <div class="page-header">
+
+        <h1> Library Visits</h1>
+
+        <a
+            href="/visits/add"
+            class="primary-btn"
+        >
+            + New Entry
+        </a>
+
+    </div>
+
+    <table>
+
+        <tr>
+            <th>ID</th>
+            <th>Student</th>
+            <th>Entry Time</th>
+            <th>Exit Time</th>
+            <th>Duration</th>
+            <th>Action</th>
+        </tr>
+
+        <% visits.forEach(visit=>{ %>
+
+        <tr>
+
+            <td><%= visit.id %></td>
+
+            <td>
+                <%= visit.name %>
+            </td>
+
+            <td>
+                <%= new Date(visit.entry_time)
+                    .toLocaleString() %>
+            </td>
+
+            <td>
+                <%= visit.exit_time? new Date(visit.exit_time).toLocaleString(): '-' %>
+            </td>
+
+            <td>
+                <%= visit.duration || '-' %>
+            </td>
+
+            <td>
+
+                <% if(!visit.exit_time){ %>
+
+                <a
+                    href="/visits/exit/<%= visit.id %>"
+                    class="return-btn"
+                >
+                    Exit
+                </a>
+
+                <% } %>
+                <a href="/visits/delete/<%= visit.id %>" class="delete-btn" onclick="return confirm('Delete Visit Record?')">Delete</a>
+
+            </td>
+
+        </tr>
+
+        <% }) %>
+
+    </table>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borrow Book</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="form-container">
+
+    <div class="form-box">
+
+        <h1> Borrow Book</h1>
+
+        <p class="subtitle">
+            Issue a book to a student
+        </p>
+
+        <form action="/borrowed/add" method="POST">
+
+            <div class="input-group">
+
+                <label>Student</label>
+
+                <select name="usn" required>
+
+                    <option value="">
+                        Select Student
+                    </option>
+
+                    <% students.forEach(student => { %>
+
+                        <option value="<%= student.usn %>">
+                            <%= student.usn %> -
+                            <%= student.name %>
+                        </option>
+
+                    <% }) %>
+
+                </select>
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Book</label>
+
+                <select name="book_id" required>
+
+                    <option value="">
+                        Select Book
+                    </option>
+
+                    <% books.forEach(book => { %>
+
+                        <option value="<%= book.id %>">
+                            <%= book.title %>
+                            (Available: <%= book.quantity %>)
+                        </option>
+
+                    <% }) %>
+
+                </select>
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Borrow Date</label>
+
+                <input
+                    type="date"
+                    name="borrowed_date"
+                    required
+                >
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Expected Return Date</label>
+
+                <input
+                    type="date"
+                    name="return_date"
+                    required
+                >
+
+            </div>
+
+            <button class="primary-btn">
+                Borrow Book
+            </button>
+
+        </form>
+
+        <a href="/borrowed" class="back-link">
+            ← Back to Borrowed Books
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

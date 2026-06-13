@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Student</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="form-container">
+
+    <div class="form-box">
+
+        <h1> Edit Student</h1>
+
+        <p class="subtitle">
+            Update student information
+        </p>
+
+        <form
+            action="/students/edit/<%= student.usn %>"
+            method="POST"
+        >
+
+            <div class="input-group">
+
+                <label>USN</label>
+
+                <input
+                    type="text"
+                    value="<%= student.usn %>"
+                    disabled
+                >
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Student Name</label>
+
+                <input
+                    type="text"
+                    name="name"
+                    value="<%= student.name %>"
+                    required
+                >
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Branch</label>
+
+                <select name="branch" required>
+
+                    <option
+                        value="CSE"
+                        <%= student.branch === 'CSE' ? 'selected' : '' %>
+                    >
+                        Computer Science
+                    </option>
+
+                    <option
+                        value="ISE"
+                        <%= student.branch === 'ISE' ? 'selected' : '' %>
+                    >
+                        Information Science
+                    </option>
+
+                    <option
+                        value="ECE"
+                        <%= student.branch === 'ECE' ? 'selected' : '' %>
+                    >
+                        Electronics & Communication
+                    </option>
+
+                    <option
+                        value="EEE"
+                        <%= student.branch === 'EEE' ? 'selected' : '' %>
+                    >
+                        Electrical & Electronics
+                    </option>
+
+                    <option
+                        value="ME"
+                        <%= student.branch === 'ME' ? 'selected' : '' %>
+                    >
+                        Mechanical
+                    </option>
+
+                    <option
+                        value="CV"
+                        <%= student.branch === 'CV' ? 'selected' : '' %>
+                    >
+                        Civil
+                    </option>
+
+                </select>
+
+            </div>
+
+            <button class="primary-btn">
+                Update Student
+            </button>
+
+        </form>
+
+        <a href="/students" class="back-link">
+            ← Back to Students
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
